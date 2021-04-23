@@ -1,0 +1,12 @@
+{
+  "name": "webgl-utils-ts",
+  "version": "0.0.1",
+  "description": "Rewrite webgl utils with typescript🥷",
+  "main": "src/index.ts",
+  "repository": "https://github.com/LiJiahaoCoder/webgl-utils-ts.git",
+  "author": "Jiahao Li <lijiahao_shandong@163.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
