@@ -121,3 +121,27 @@ export const createShaderFromScript = (
 
   return loadShader(gl, shaderScript.text, shaderType);
 };
+
+const DEFAULT_SHADER_TYPE: (keyof Pick<
+  WebGLRenderingContext,
+  'VERTEX_SHADER' | 'FRAGMENT_SHADER'
+>)[] = [
+  'VERTEX_SHADER',
+  'FRAGMENT_SHADER',
+];
+
+export const createProgramFromScripts = (
+  gl: WebGLRenderingContext,
+  shaderScriptIds: string[],
+  attributes?: string[],
+  locations?: number[],
+) => {
+  const shaders: WebGLShader[] = [];
+  shaderScriptIds.forEach((s, i) => {
+    shaders.push(
+      createShaderFromScript(gl, s, gl[DEFAULT_SHADER_TYPE[i]]),
+    );
+  });
+
+  return createProgram(gl, shaders, attributes, locations);
+};
