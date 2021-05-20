@@ -6,6 +6,9 @@
   "repository": "https://github.com/LiJiahaoCoder/webgl-utils-ts.git",
   "author": "Jiahao Li <lijiahao_shandong@163.com>",
   "license": "MIT",
+  "scripts": {
+    "type": "tsc"
+  },
   "devDependencies": {
     "typescript": "^4.2.4"
   }

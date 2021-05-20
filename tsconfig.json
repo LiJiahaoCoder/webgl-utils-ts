@@ -3,6 +3,7 @@
     "target": "ESNext",
     "strict": true,
     "allowJs": true,
+    "noEmit": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,

@@ -98,3 +98,26 @@ export const createProgram = (
 
   return program;
 };
+
+export const createShaderFromScript = (
+  gl: WebGLRenderingContext,
+  scriptId: string,
+  shaderType?: GLenum,
+) => {
+  const shaderScript = document.getElementById(scriptId) as HTMLScriptElement;
+  if (!shaderScript) {
+    throw new Error(`*** Error: unknown script element${scriptId}`);
+  }
+
+  if (shaderType === undefined) {
+    if (shaderScript.type === 'x-shader/x-vertex') {
+      shaderType = gl.VERTEX_SHADER;
+    } else if (shaderScript.type === 'x-shader/x-fragment') {
+      shaderType = gl.FRAGMENT_SHADER;
+    } else {
+      throw new Error('*** Error: unknown shader type');
+    }
+  }
+
+  return loadShader(gl, shaderScript.text, shaderType);
+};
