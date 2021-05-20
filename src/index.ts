@@ -109,3 +109,19 @@ export const createProgramFromScripts = (
 
   return createProgram(gl, shaders, attributes, locations);
 };
+
+export const createProgramFromSources = (
+  gl: WebGLRenderingContext,
+  shaderSources: string[],
+  attributes: string[],
+  locations: number[],
+) => {
+  const shaders: WebGLShader[] = [];
+  shaderSources.forEach((s, i) => {
+    shaders.push(
+      loadShader(gl, s, gl[DEFAULT_SHADER_TYPE[i]]),
+    );
+  });
+
+  return createProgram(gl, shaders, attributes, locations);
+};
